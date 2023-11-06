@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Transport Management System</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    background-image: url('./html_images/s3.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+#request-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+#submit-request {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#request-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Transport Management</h1>
+    <div id="request-form">
+        <label for="requester-name">Requester Name</label><br>
+        <input type="text" id="requester-name" placeholder="Enter requester's name"><br><br>
+        <label for="destination">Destination:</label><br>
+        <input type="text" id="destination" placeholder="Enter destination"><br><br>
+        <button id="submit-request">Submit Request</button>
+    </div>
+    <div id="request-list">
+        <h2>Transportation Requests</h2>
+        <ul id="request-records">
+            <!-- Transportation requests will be displayed here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const submitRequestButton = document.getElementById('submit-request');
+    const requesterNameInput = document.getElementById('requester-name');
+    const destinationInput = document.getElementById('destination');
+    const requestRecordsList = document.getElementById('request-records');
+
+    submitRequestButton.addEventListener('click', function() {
+        const requesterName = requesterNameInput.value.trim();
+        const destination = destinationInput.value.trim();
+
+        if (requesterName !== "" && destination !== "") {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Requester: ${requesterName}, Destination: ${destination}`;
+            requestRecordsList.appendChild(listItem);
+            requesterNameInput.value = "";
+            destinationInput.value = "";
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

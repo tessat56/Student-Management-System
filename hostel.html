@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Management</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    background-image: url('./html_images/s4.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+#room-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+#add-room {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#room-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Hostel Management</h1>
+    <div id="room-form">
+        <label for="room-number">Room Number</label><br>
+        <input type="text" id="room-number" placeholder="Enter room number"><br>
+        <label for="occupants">Occupants</label><br>
+        <input type="number" id="occupants" placeholder="Enter number of occupants"><br>
+        <button id="add-room">Add Room</button>
+    </div>
+    <div id="room-list">
+        <h2>Hostel Rooms</h2>
+        <ul id="room-records">
+            <!-- Room records will be displayed here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addRoomButton = document.getElementById('add-room');
+            const roomNumberInput = document.getElementById('room-number');
+            const occupantsInput = document.getElementById('occupants');
+            const roomRecordsList = document.getElementById('room-records');
+        
+            addRoomButton.addEventListener('click', function() {
+                const roomNumber = roomNumberInput.value.trim();
+                const occupants = occupantsInput.value;
+        
+                if (roomNumber !== "" && occupants !== "") {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Room: ${roomNumber}, Occupants: ${occupants}`;
+                    roomRecordsList.appendChild(listItem);
+                    roomNumberInput.value = "";
+                    occupantsInput.value = "";
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>

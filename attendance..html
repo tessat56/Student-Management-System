@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Management</title>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    background-image: url('./html_images/fisat1.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+#attendance-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+#mark-attendance {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#attendance-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Attendance</h1>
+    <div id="attendance-form">
+        <label for="student-name">Student Name:</label>
+        <input type="text" id="student-name" placeholder="Enter student's name"><br><br>
+        <button id="mark-attendance">Mark Attendance</button>
+    </div>
+    <div id="attendance-list">
+        <h2>Attendance List</h2>
+        <ul id="attendance-records">
+            <!-- Attendance records will be displayed here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const markAttendanceButton = document.getElementById('mark-attendance');
+    const studentNameInput = document.getElementById('student-name');
+    const attendanceRecordsList = document.getElementById('attendance-records');
+
+    markAttendanceButton.addEventListener('click', function() {
+        const studentName = studentNameInput.value.trim();
+        if (studentName !== "") {
+            const listItem = document.createElement('li');
+            listItem.textContent = studentName;
+            attendanceRecordsList.appendChild(listItem);
+            studentNameInput.value = "";
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

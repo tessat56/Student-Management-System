@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Examination Management System</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    background-image: url('./html_images/s2.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+#exam-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+#create-exam {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#exam-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Examination Management</h1>
+    <div id="exam-form">
+        <label for="exam-name">Exam Name</label><br>
+        <input type="text" id="exam-name" placeholder="Enter exam name"><br><br>
+        <label for="exam-date">Exam Date</label><br>
+        <input type="date" id="exam-date"><br><br>
+        <button id="create-exam">Create Exam</button>
+    </div>
+    <div id="exam-list">
+        <h2>Exam List</h2>
+        <ul id="exam-records">
+            <!-- Exam records will be displayed here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const createExamButton = document.getElementById('create-exam');
+    const examNameInput = document.getElementById('exam-name');
+    const examDateInput = document.getElementById('exam-date');
+    const examRecordsList = document.getElementById('exam-records');
+
+    createExamButton.addEventListener('click', function() {
+        const examName = examNameInput.value.trim();
+        const examDate = examDateInput.value;
+
+        if (examName !== "" && examDate !== "") {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Exam: ${examName}, Date: ${examDate}`;
+            examRecordsList.appendChild(listItem);
+            examNameInput.value = "";
+            examDateInput.value = "";
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

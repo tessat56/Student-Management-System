@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Fees Management</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    background-image: url('./html_images/s1.jpeg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+#fee-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+#add-fee {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#fee-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Student Fees </h1>
+    <div id="fee-form">
+        <label for="student-name">Student Name:</label>
+        <input type="text" id="student-name" placeholder="Enter student's name"><br><br>
+        <label for="fee-amount">Fee Amount:</label>
+        <input type="text" id="fee-amount" placeholder="Enter fee amount"><br><br>
+        <button id="add-fee">Add Fee</button>
+    </div>
+    <div id="fee-list">
+        <h2>Fee Records</h2>
+        <ul id="fee-records">
+            <!-- Fee records will be displayed here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const addFeeButton = document.getElementById('add-fee');
+    const studentNameInput = document.getElementById('student-name');
+    const feeAmountInput = document.getElementById('fee-amount');
+    const feeRecordsList = document.getElementById('fee-records');
+
+    addFeeButton.addEventListener('click', function() {
+        const studentName = studentNameInput.value.trim();
+        const feeAmount = feeAmountInput.value.trim();
+        
+        if (studentName !== "" && feeAmount !== "") {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Student: ${studentName}, Fee Amount: $${feeAmount}`;
+            feeRecordsList.appendChild(listItem);
+            studentNameInput.value = "";
+            feeAmountInput.value = "";
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

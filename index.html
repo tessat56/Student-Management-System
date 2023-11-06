@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Student management</title>
+        <link rel="stylesheet" href="style.css"/>
+        <script defer src="login-page.js"></script>
+    </head>
+
+<body>
+    <div class="main">
+        <p id="main1">STUDENT MANAGEMENT</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#main1">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#login">Login</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+    <div class="slideshowcont">
+        <div class="mySlides">
+            <img src="html_images/fisat1.png" width="100%">
+        </div>
+        <div class="mySlides">
+            <img src="html_images/s1.jpeg" width="100%" height="500 px">
+        </div>
+        <div class="mySlides">
+            <img src="html_images/s2.jpg" width="100%">
+        </div>
+        <!-- <div class="mySlides">
+            <img src="html_images/ss1.jpg" width="100%">
+        </div> -->
+        <div class="mySlides">
+            <img src="html_images/ss.webp" width="100%">
+        </div>
+        <div class="mySlides">
+            <img src="html_images/stu.jpg" width="100%">
+        </div>
+        
+    </div>
+
+    <br>
+      
+      <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() 
+        {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}
+          slides[slideIndex-1].style.display = "block";
+          setTimeout(showSlides, 2000); // Change image every 3 seconds
+        }
+        
+        
+    </script>
+
+
+    <section id="about">
+        <div>
+            <div class="about-container">
+                <div class="about-detail" height="100%" width="100%">
+                    <br><br><br><h1 class=>FISAT</h1>
+                    <hr>
+                    <div id="aboutp">
+                    <p>The Federal Institute of Science and Technology (FISAT) is a self-financing private engineering college established and promoted by the Federal Bank Officers’ Association Educational Society (FBOAES). The FBOAES is an initiative of the Federal Bank Officers’ Association (FBOA), the sole representative body of all Federal Bank officers. Federal Institute of Science and Technology (FISAT) occupies a unique position in South India’s Professional Education Sector. FISAT has been designed and developed to become a “Centre of Excellence” in professional education, with the motto “Focus on Excellence.” Established in 2002, the college has carved a niche for itself in the education sector, as evidenced by its students’ outstanding performance in academics, placements, and extra-curricular and co-curricular activities. FISAT has launched an ambitious plan to improve the quality and value of education while also developing high-quality individuals. The institution is accredited by the National Assessment and Accreditation Council (NAAC) with an ‘A+’ grade in the 2nd cycle. The National Board of Accreditation (NBA) has accredited five B.Tech programmes. The institution is also ISO 9001:2015 certified. FISAT is located in Mookannoor, near Angamaly in Ernakulam District, Kerala, the birthplace of The Federal Bank Ltd. founder, Late K P Hormis, and the campus is named “Hormis Nagar” in his honour. FISAT is affiliated with APJ Abdul Kalam Technological University (KTU) and is approved by the All India Council for Technical Education (AICTE), New Delhi. FISAT offers seven B.Tech engineering programmes, an MBA programme (with specialisations in Finance, Marketing, Human Resource Management, Information System, Production & Operations Management, and International Business), an MCA programme, five M.Tech programmes and PhD programmes.
+
+                    </p><br><br><br>
+        </div>
+                </div>
+            </div><br><br>
+        </div>
+        
+    </section>
+    
+
+    <section id="contact">
+        <div>
+            <div class="con">
+                <div class="con1" height="100%" width="100%">
+                    <br><br><br><h1>Contact</h1>
+                    <hr>
+                    <div id="conp">
+                    <p>Contact Address<br>
+                        Federal Institute of Science And Technology (FISAT)®<br>
+                        Hormis Nagar, Mookkannoor P O,<br>
+                        Angamaly, Ernakulam Dt.<br>
+                        Kerala, India, Pin - 683 577<br>
+                        Ph: 0484 - 2725272<br>
+                        Email : mail@fisat.ac.in<br>
+
+                    </p><br><br><br>
+        </div>
+                </div>
+            </div><br><br>
+        </div>
+        
+    </section>
+    <hr>
+    <section id="login">
+        <main id="main-holder">
+            <img  class="login" src="./html_images/images.png">
+            <h1 id="login-header">Login</h1>
+            
+            <div id="login-error-msg-holder">
+              <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+            </div>
+            
+            <form id="login-form">
+              <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username"><br><br>
+              <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password"><br><br>
+              <input type="submit" value="Login" id="login-form-submit"><br><br>
+            </form>
+          
+          </main>
+    </section>
+    
+</body>
+</html>

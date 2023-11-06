@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Class Activities Management</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    background-image: url('./html_images/stu.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+#activity-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+#add-activity {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#activity-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Class Activities Management</h1>
+    <div id="activity-form">
+        <label for="activity-name">Activity Name</label><br>
+        <input type="text" id="activity-name" placeholder="Enter activity name"><br>
+        <label for="due-date">Due Date</label><br>
+        <input type="date" id="due-date"><br><br><br>
+        <button id="add-activity">Add Activity</button><br>
+    </div>
+    <div id="activity-list">
+        <h2>Class Activities</h2>
+        <ul id="activity-records">
+            <!-- Activity records will be displayed here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const addActivityButton = document.getElementById('add-activity');
+    const activityNameInput = document.getElementById('activity-name');
+    const dueDateInput = document.getElementById('due-date');
+    const activityRecordsList = document.getElementById('activity-records');
+
+    addActivityButton.addEventListener('click', function() {
+        const activityName = activityNameInput.value.trim();
+        const dueDate = dueDateInput.value;
+
+        if (activityName !== "" && dueDate !== "") {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Activity: ${activityName}, Due Date: ${dueDate}`;
+            activityRecordsList.appendChild(listItem);
+            activityNameInput.value = "";
+            dueDateInput.value = "";
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

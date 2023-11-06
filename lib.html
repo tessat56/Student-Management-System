@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    background-image: url('./html_images/ss1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+#add-book-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+#add-book {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#book-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Library Management</h1>
+    <div id="add-book-form">
+        <label for="book-title">Book Title</label><br>
+        <input type="text" id="book-title" placeholder="Enter book title"><br>
+        <label for="author">Author</label><br>
+        <input type="text" id="author" placeholder="Enter author's name"><br>
+        <button id="add-book">Add Book</button>
+    </div>
+    <div id="book-list">
+        <h2>Library Collection</h2>
+        <ul id="book-records">
+            <!-- Book records will be displayed here -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const addBookButton = document.getElementById('add-book');
+    const bookTitleInput = document.getElementById('book-title');
+    const authorInput = document.getElementById('author');
+    const bookRecordsList = document.getElementById('book-records');
+
+    addBookButton.addEventListener('click', function() {
+        const bookTitle = bookTitleInput.value.trim();
+        const author = authorInput.value.trim();
+
+        if (bookTitle !== "" && author !== "") {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Title: ${bookTitle}, Author: ${author}`;
+            bookRecordsList.appendChild(listItem);
+            bookTitleInput.value = "";
+            authorInput.value = "";
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
